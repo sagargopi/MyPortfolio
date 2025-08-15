@@ -46,8 +46,7 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
-  const [ref, inView] = useInView({
+    const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -87,24 +86,6 @@ export default function Projects() {
             </span>
           </motion.h2>
 
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
-            variants={item}
-          >
-            {['All', 'Web', 'Mobile', 'Full Stack'].map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                  activeFilter === filter
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
